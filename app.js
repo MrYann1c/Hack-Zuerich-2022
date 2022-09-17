@@ -31,6 +31,10 @@ var connection = require('./db.js');
 app.get('/', function (req, res) {
 	res.render('pages/index');	
 });
+app.get('/imp', function (req, res) {
+	res.render('pages/impressum');	
+});
+
 
 const httpServer = http.createServer(app);
 

@@ -4,20 +4,38 @@
     <%- include("../partials/head"); %>
 </head>
 <body>
-    
+
+    <!-- Burger Menu (Button) -->
+    <div data-aos="fade-down-right" data-aos-duration="1000" class="cc-burgerBtn">
+        <a onclick="burgerMenu(1)">MENU</a>
+    </div>
+
     <!-- Welcome Section -->
     <section class="cc-welcomeSec">
-        <div class="cc-titleWrap">
-            <h1 class="cc-welcomeTitle">Swiss Climate Change</h1>
-            <h2 class="cc-welcomeSubTitle">HackZürich 2022</h2>
+
+        <!-- Burger Menu (Container & Links) -->
+        <div class="cc-burgerContainer">
+            <div class="cc-burgerInner">
+                <a class="cc-burgerLink" onclick="revealGlacier()"><i class="fa-solid fa-mountain"></i></a>
+                <a class="cc-burgerLink" onclick="revealTemperature()"><i class="fa-solid fa-temperature-three-quarters"></i> </a>
+                <a class="cc-burgerLink" onclick="revealRainfall()"><i class="fa-solid fa-cloud-rain"></i></a>
+                <a class="cc-burgerLink" onclick="revealEnergy()"><i class="fa-solid fa-bolt"></i></a>
+                <a class="cc-burgerLink" onclick="revealPopulation()"><i class="fa-solid fa-person "></i></a>
+            </div>
         </div>
-        <div class="cc-scrollBtn">
-            <a href="#1">Start Journey</a>
+
+        <div class="cc-titleWrap">
+            <h1 data-aos="fade-down" data-aos-duration="2000" class="cc-welcomeTitle">Swiss Clim<i data-aos-delay="1300" data-aos-duration="750" data-aos="zoom-in" class="fa-solid fa-tree"></i>te Change</h1>
+            <h2 data-aos-delay="1200" data-aos-duration="1000" data-aos="fade-up" class="cc-welcomeSubTitle">HackZürich 2022</h2>
+        </div>
+
+        <div data-aos-delay="2000" data-aos-duration="1250" data-aos="fade-up" class="cc-storyBtn">
+            <a onclick="revealGlacier()">Start Journey</a>
         </div>
     </section>
 
-    <!-- Data Section 1 | 1900 - 1930 -->
-    <section class="cc-dataSec1" id="1">
+    <!-- Glacier Section -->
+    <section class="cc-glacSec" id="1">
         <div class="cc-data1TitleWrap">
             <div style="position: relative; width: fit-content;">
                 <h1 class="cc-data1Title">1900 - 1930</h1>
@@ -30,20 +48,187 @@
                 <i class="fa-solid fa-mountain"></i>
                 <h2>Glacier</h2>
             </div>
-            <p class="cc-textParagraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo neque enim maxime possimus, modi repellat dolores eveniet accusantium vitae fugit id sed assumenda, sint deleniti impedit tempore laboriosam necessitatibus magni!</p>
-            <div>
 
+            <!-- <img id="glace" class="cc-glacierSVG" src="/images/cc-glacierSvg.svg" alt=""> -->
+            <object id="glace" class="cc-glacierSVG" type="image/svg+xml" data="/images/cc-glacierSvg.svg" style="height: 857px;"></object>
+
+            <p class="cc-textParagraph ">In 1900, Swiss glaciers were almost 18 km long on average.
+                As temperatures rose, the length of the glaciers steadily decreased. By 1930, Swiss glaciers had lost an average of 292 metres in length.</p>
+            
+            <div class="cc-storyBtn Glacier">
+                <a id="cc-glacierContinue" onclick="nextYear(1900);startSVG();">Continue</a>
             </div>
         </div>
 
-        <div class="cc-data1Container">
+        <div class="cc-data1-glacierContainer">
+            <div class="cc-data1-glacierIllustration">
+                <h2 class="cc-glacierDataTitles" id="test1"><i class="fa-solid fa-arrow-right-long"></i> Length</h2>
+                <p class="cc-glacierLength">17'975m</p>
+            </div>
+
+            <div class="cc-data1-glacierData">
+                <h2 class="cc-glacierDataTitles" id="test2"><i class="fa-solid fa-arrow-down-long"></i> Decrease</h2>
+                <p class="cc-glacierDecrease">- 292m</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Temperature Section -->
+    <section class="cc-tempSec">
+        <div class="cc-tempContainer">
             <div class="cc-data1GLTitle">
                 <i class="fa-solid fa-temperature-three-quarters"></i>
-                <h2>Mean Temperature</h2>
+                <h2>Temperature</h2>
             </div>
-            <p class="cc-textParagraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo neque enim maxime possimus, modi repellat dolores eveniet accusantium vitae fugit id sed assumenda, sint deleniti impedit tempore laboriosam necessitatibus magni!</p>
+            
+            <h2 class="cc-tempSubTitle">1981 - 1990</h2>
+            <p class="cc-tempText">Temperature deviations from the average of 1961-1990 in Switzerland measured in °C. 0°C is equivalent to the average of 1961-1990.</p>
+            
+            <div class="cc-illuContainer">
+                <img class="cc-tempScala" src="/images/temperature/cc-tempScala.png" alt="Temp Scala">
+                <img class="cc-tempSwiss" src="/images/temperature/cc-1981-1990.png" alt="Swiss-Temp-Map">
+            </div>
+
+            <div class="cc-storyBtn Temperature">
+                <a id="cc-tempContinue" onclick="nextTemp(1)">Continue</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rainfall Section -->
+    <section class="cc-rainSec">
+        <div class="cc-rainContainer">
+            <div class="cc-data1GLTitle">
+                <i class="fa-solid fa-cloud-rain"></i>
+                <h2>Rainfall</h2>
+            </div>
+
+            <img class="cc-rainCalendar" src="/images/cc-calendar.webp" alt="Rainfall Calendar">
+            <h2 class="cc-rainYear" style="z-index: 1000;">1960</h2>
+
+            <h2 class="cc-rainTitle">Precipitation days</h2>
+            <p class="cc-rainDays">136</p>
+
+            <div class="cc-storyBtn Rainfall">
+                <a id="cc-rainContinue" onclick="nextRain(1)">Continue</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Energy Section -->
+    <section class="cc-energySec">
+        <div class="cc-energyContainer">
+            <div class="cc-data1GLTitle">
+                <i class="fa-solid fa-bolt"></i>
+                <h2>Energy</h2>
+            </div>
+
+            <h1 class="cc-energyYearTitle">1910 - 1940</h1>
+            <p class="cc-energyDesc">Total energy produced, sorted by energy source.</p>
+
+            <div class="cc-energyGrid">
+                <div class="cc-energyGridItem">
+                    <h2>Oil</h2>
+                    <p value="3" class="cc-energyGridText">3%</p>
+                </div>
+                <div class="cc-energyGridItem">
+                    <h2>Fuels</h2>
+                    <p class="cc-energyGridText">4%</p>
+                </div>
+                <div class="cc-energyGridItem">
+                    <h2> Electricity</h2>
+                    <p class="cc-energyGridText">9%</p>
+                </div>
+                <div class="cc-energyGridItem">
+                    <h2> Gas</h2>
+                    <p class="cc-energyGridText">3%</p>
+                </div>
+                <div class="cc-energyGridItem">
+                    <h2> Coal & Coke</h2>
+                    <p class="cc-energyGridText">66%</p>
+                </div>
+                <div class="cc-energyGridItem">
+                    <h2>Wood & Charcoal</h2>
+                    <p class="cc-energyGridText">15%</p>
+                </div>
+                <div class="cc-energyGridItem">
+                    <h2>District heating</h2>
+                    <p class="cc-energyGridText">0%</p>
+                </div>
+                <div class="cc-energyGridItem">
+                    <h2>Waste</h2>
+                    <p class="cc-energyGridText">0%</p>
+                </div>
+                <div class="cc-energyGridItem">
+                    <h2>Renewable energies</h2>
+                    <p class="cc-energyGridText">0%</p>
+                </div>
+            </div>
+
+            <div class="cc-storyBtn Energy">
+                <a id="cc-energyContinue" onclick="nextEnergy(1)">Continue</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Population Section -->
+    <section class="cc-popSec">
+        <div class="cc-popContainer">
+            <div class="cc-data1GLTitle">
+                <i class="fa-solid fa-person"></i>
+                <h2>Population</h2>
+            </div>
+
+            <div class="cc-popGrid">
+                <div class="cc-popGridItem">
+                    <h2>1900 - 1930</h2>
+                    <h3 id="cc-countFirst" class="cc-countTitle">Total <i class='fa-solid fa-child'></i></h3>
+                    <h1 class="cc-count" id="testing">4'070'000</h1>
+                    <h3 class="cc-countTitle">Gained <i class='fa-solid fa-child'></i></h3>
+                    <h1 id="cc-count2" class="cc-count">750'000</h1>
+                </div>
+                <div class="cc-popGridItem">
+                    <h2>1931 - 1960</h2>
+                    <h3 id="cc-countFirst" class="cc-countTitle">Total <i class='fa-solid fa-child'></i></h3>
+                    <h1 class="cc-count" id="testing">5'360'000</h1>
+                    <h3 class="cc-countTitle">Gained <i class='fa-solid fa-child'></i></h3>
+                    <h1 id="cc-count2" class="cc-count">1'340'000</h1>
+                </div>
+                <div class="cc-popGridItem">
+                    <h2>1961 - 1990</h2>
+                    <h3 id="cc-countFirst" class="cc-countTitle">Total <i class='fa-solid fa-child'></i></h3>
+                    <h1 class="cc-count" id="testing">6'750'000</h1>
+                    <h3 class="cc-countTitle">Gained <i class='fa-solid fa-child'></i></h3>
+                    <h1 id="cc-count2" class="cc-count">1'390'000</h1>
+                </div>
+                <div class="cc-popGridItem">
+                    <h2>1991 - 2020</h2>
+                    <h3 id="cc-countFirst" class="cc-countTitle">Total <i class='fa-solid fa-child'></i></h3>
+                    <h1 class="cc-count" id="testing">8'670'000</h1>
+                    <h3 class="cc-countTitle">Gained <i class='fa-solid fa-child'></i></h3>
+                    <h1 id="cc-count2" class="cc-count">1'920'000</h1>
+                </div>
+            </div>
+
+            
+
+            <div class="cc-storyBtn Population">
+                <a id="cc-popContinue" href="/imp">End Journey</a>
+            </div>
         </div>
     </section>
 
 </body>
+
+<!-- Scripts (Local & Aos.js) -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+<script src="/js/main.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<!-- Initialize AOS.js -->
+<script>
+    AOS.init();
+</script>
+
 </html>

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;800;900&display=swap");
 body, html {
   margin: 0;
@@ -11,6 +12,66 @@ body, html {
   scrollbar-width: none;
 }
 
+.cc-burgerBtn {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+  text-decoration: none;
+  color: silver;
+  border-radius: 100%;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 150ms;
+  font-size: 20px;
+}
+
+.cc-burgerContainer {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.cc-burgerInner {
+  display: none;
+  width: 0%;
+  height: 100%;
+  background-color: darkslategray;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: all 200ms;
+  opacity: 0.6;
+}
+
+.cc-burgerLink {
+  display: none;
+  opacity: 0;
+  text-decoration: none;
+  color: silver;
+  font-size: 40px;
+  padding: 15px 10px 15px 10px;
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+.cc-burgerLink:hover {
+  transform: scale(1.1);
+  color: white;
+}
+
+.cc-burgerLink > i {
+  color: silver;
+  font-size: 70px;
+}
+
 .cc-welcomeSec {
   position: relative;
   height: 100vh;
@@ -22,6 +83,7 @@ body, html {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  box-shadow: inset 0px 0px 50px -3px rgba(0, 0, 0, 0.75);
 }
 
 .cc-titleWrap {
@@ -45,77 +107,100 @@ body, html {
   color: silver;
 }
 
-.cc-scrollBtn {
+.cc-storyBtn {
   position: absolute;
-  bottom: 75px;
+  bottom: 120px;
   text-align: center;
 }
 
-.cc-scrollBtn > a {
+.cc-storyBtn > a {
   text-decoration: none;
   color: darkslategray;
   font-weight: 800;
   text-transform: uppercase;
-  padding: 16px;
+  padding: 16px 60px 16px 60px;
   border-radius: 30px;
   background-color: silver;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
   transition: all 200ms;
+  cursor: pointer;
 }
 
-.cc-scrollBtn > a:hover {
+.cc-storyBtn > a:hover {
   background-color: lightcoral;
 }
 
-.cc-dataSec1 {
-  display: flex;
+.cc-glacSec {
+  position: absolute;
+  top: 0;
   flex-direction: column;
   height: 100vh;
-  background-color: silver;
-  box-shadow: inset 0px 0px 13px 0px rgba(0, 0, 0, 0.75);
+  width: 100%;
+  display: none;
+  opacity: 0;
+  background-image: url("/images/cc-polyGlacierBackground.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all 500ms;
+  box-shadow: inset 0px 0px 50px -3px rgba(0, 0, 0, 0.75);
 }
 
 .cc-data1TitleWrap {
   width: 100%;
-  margin-top: 300px;
+  margin-top: 100px;
 }
 
 .cc-data1Title {
-  color: darkslategray;
+  color: silver;
   font-weight: 900;
   font-size: 70px;
   margin: 0 50px 0 50px;
   z-index: 100;
   position: relative;
+  transition: all 200ms;
 }
 
 .cc-titleBackground {
   position: absolute;
   height: 35px;
+  min-width: 508px;
   z-index: 0;
   left: 0;
   bottom: 0;
   right: 0;
   top: 50px;
-  background-color: lightgreen;
+  background-color: darkslategray;
 }
 
 .cc-data1Container {
   width: 100%;
-  height: 100%;
+  height: 350px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 100;
 }
 
-.fa-mountain, .fa-temperature-three-quarters {
-  font-size: 55px;
+.fa-mountain,
+.fa-temperature-three-quarters,
+.fa-cloud-rain,
+.fa-bolt,
+.fa-person {
+  font-size: 80px;
   color: darkslategray;
-  margin-bottom: 20px;
+}
+
+.fa-tree {
+  font-size: 80px;
+  color: lightgreen;
+  margin: 0 6px 0 6px;
 }
 
 .cc-data1GLTitle {
+  position: absolute;
+  top: 50px;
   text-align: center;
 }
 
@@ -124,7 +209,7 @@ body, html {
   color: darkslategray;
   font-size: 50px;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 900;
 }
 
 .cc-textParagraph {
@@ -133,4 +218,438 @@ body, html {
   font-size: 25px;
   text-align: center;
   margin: 20px 0 0 0;
+  z-index: 1000;
+}
+
+.cc-data1-glacierContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.cc-data1-glacierIllustration {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100px;
+  z-index: 1000;
+}
+
+.cc-data1-glacierData {
+  width: 25%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+.cc-glacierDataTitles {
+  color: darkslategray;
+  text-transform: uppercase;
+  font-size: 35px;
+  transition: all 500ms;
+}
+
+.cc-glacierLength, .cc-glacierDecrease {
+  margin: 0;
+  font-size: 30px;
+  color: darkred;
+  font-weight: 500;
+  z-index: 1;
+  transition: all 200ms;
+}
+
+.fa-arrow-down-long, .fa-arrow-right-long {
+  font-size: 30px;
+  color: darkslategrey;
+  margin-right: 15px;
+}
+
+.cc-glacierSVG {
+  position: absolute;
+  width: 45vw;
+  bottom: 10px;
+  left: 10px;
+  z-index: inherit;
+}
+
+.cc-tempSec {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  display: none;
+  opacity: 0;
+  background-image: url("/images/cc-polyTempBackground.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all 500ms;
+  z-index: 200;
+  box-shadow: inset 0px 0px 50px -3px rgba(0, 0, 0, 0.75);
+}
+
+.cc-tempContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 250;
+}
+
+.cc-tempContainer > div > h2 {
+  color: rgb(192, 192, 192);
+}
+
+.cc-tempContainer > div > i {
+  color: silver;
+}
+
+.cc-tempSubTitle {
+  color: silver;
+  font-size: 35px;
+  margin: 0;
+  transition: all 300ms;
+  position: absolute;
+  top: 200px;
+}
+
+.cc-tempText {
+  margin: 0;
+  font-size: 25px;
+  max-width: 800px;
+  text-align: center;
+  color: silver;
+  position: absolute;
+  top: 260px;
+}
+
+.cc-illuContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px;
+}
+
+.cc-tempScala {
+  height: 55px;
+  transform: rotate(-90deg);
+  margin-right: 15px;
+}
+
+.cc-tempSwiss {
+  width: 350px;
+  margin-left: 15px;
+  transition: all 300ms;
+}
+
+.cc-rainSec {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  display: none;
+  opacity: 0;
+  background-image: url("/images/cc-polyRainBackground.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all 500ms;
+  z-index: 100;
+  box-shadow: inset 0px 0px 50px -3px rgba(0, 0, 0, 0.75);
+}
+
+.cc-rainContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cc-rainContainer > div > h2 {
+  color: silver;
+}
+
+.cc-rainContainer > div > i {
+  color: silver;
+}
+
+.cc-rainCalendar {
+  position: absolute;
+  width: 400px;
+  z-index: 10;
+}
+
+.cc-rainYear {
+  position: absolute;
+  margin-bottom: 172px;
+  font-size: 29px;
+  color: white;
+}
+
+.cc-rainTitle {
+  z-index: 100;
+  color: darkslategray;
+  font-size: 23px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin: 70px 0 0 0;
+}
+
+.cc-rainDays {
+  color: blue;
+  font-size: 25px;
+  font-weight: 900;
+  z-index: 100;
+  margin: 15px 0 0 0;
+}
+
+.cc-energySec {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  display: none;
+  opacity: 0;
+  background-image: url("/images/cc-polyEnergyBackground.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all 500ms;
+  z-index: 100;
+  box-shadow: inset 0px 0px 50px -3px rgba(0, 0, 0, 0.75);
+}
+
+.cc-energyContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cc-energyContainer > div > h2 {
+  color: silver;
+}
+
+.fa-bolt {
+  color: gold;
+}
+
+.cc-energyYearTitle {
+  color: silver;
+  font-size: 40px;
+  position: absolute;
+  top: 150px;
+  transition: all 200ms;
+}
+
+.cc-energyDesc {
+  position: absolute;
+  top: 235px;
+  color: silver;
+  font-size: 20px;
+}
+
+.cc-energyGrid {
+  display: grid;
+  grid-template-columns: 400px 400px 400px;
+  padding: 5px;
+  position: absolute;
+}
+
+.cc-energyGridItem {
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  border: 1px solid rgba(192, 192, 192, 0.322);
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+.cc-energyGridItem > h2 {
+  color: silver;
+  font-size: 26px;
+  text-transform: uppercase;
+  margin: 0;
+  font-weight: 400;
+}
+
+.cc-energyGridText {
+  margin: 0;
+  color: gold;
+  font-weight: 800;
+  font-size: 23px;
+  transition: all 200ms;
+}
+
+.cc-popSec {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  display: none;
+  opacity: 0;
+  background-image: url("/images/cc-polyPopBackground.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all 500ms;
+  z-index: 100;
+  box-shadow: inset 0px 0px 50px -3px rgba(0, 0, 0, 0.75);
+}
+
+.cc-popContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.cc-popContainer > div > h2 {
+  color: silver;
+}
+
+.cc-popContainer > div > i {
+  color: silver;
+}
+
+.fa-child {
+  color: silver;
+  font-size: 25px;
+  padding: 5px;
+}
+
+.döggeli {
+  width: 1000px;
+  text-align: center;
+}
+
+.cc-countTitle {
+  color: darkslategray;
+  margin: 0;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.cc-count {
+  margin: 0;
+  font-weight: 500;
+  font-size: 23px;
+  color: darkorange;
+}
+
+#cc-count2 {
+  color: lightgreen;
+}
+
+.cc-popGrid {
+  display: grid;
+  grid-template-columns: 400px 400px;
+  padding: 5px;
+  position: absolute;
+}
+
+.cc-popGridItem {
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  border: 1px solid rgba(192, 192, 192, 0.322);
+  background-color: rgba(192, 192, 192, 0.3);
+  border-radius: 5px;
+}
+
+.cc-popGridItem > h2 {
+  color: darkslategray;
+  font-size: 28px;
+  margin: 0 0 10px 0;
+}
+
+.cc-impSec {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/images/cc-polyImgBackground.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.cc-impGrid {
+  display: grid;
+  grid-template-columns: 450px 450px 450px;
+  padding: 10px;
+}
+
+.cc-impGridItem {
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  border: 1px solid rgba(192, 192, 192, 0.322);
+  border-radius: 5px;
+}
+
+.cc-impGridItem > h1 {
+  color: silver;
+  margin: 0 0 5px 0;
+}
+
+.cc-impGridItem > p {
+  color: silver;
+  margin: 0 0 5px 0;
+}
+
+.cc-impGridItem > a {
+  text-decoration: none;
+  color: lightcoral;
+}
+
+#cc-impContinue > i {
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+@media screen and (max-width: 1800px) {
+  .cc-burgerInner {
+    opacity: 1;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .cc-welcomeTitle {
+    font-size: 50px;
+  }
+}
+@media screen and (max-width: 830px) {
+  .cc-welcomeTitle {
+    font-size: 30px;
+  }
+  .fa-tree {
+    font-size: 40px;
+  }
+  .cc-welcomeSubTitle {
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 475px) {
+  .cc-welcomeTitle {
+    font-size: 23px;
+  }
+  .fa-tree {
+    font-size: 25px;
+  }
+  .cc-welcomeSubTitle {
+    font-size: 18px;
+  }
 }/*# sourceMappingURL=main.css.map */
