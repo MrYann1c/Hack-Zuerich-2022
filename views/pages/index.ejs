@@ -35,7 +35,7 @@
     </section>
 
     <!-- Glacier Section -->
-    <section class="cc-glacSec" id="1">
+    <section class="cc-glacSec">
         <div class="cc-data1TitleWrap">
             <div style="position: relative; width: fit-content;">
                 <h1 class="cc-data1Title">1900 - 1930</h1>
@@ -49,10 +49,9 @@
                 <h2>Glacier</h2>
             </div>
 
-            <!-- <img id="glace" class="cc-glacierSVG" src="/images/cc-glacierSvg.svg" alt=""> -->
             <object id="glace" class="cc-glacierSVG" type="image/svg+xml" data="/images/cc-glacierSvg.svg" style="height: 857px;"></object>
 
-            <p class="cc-textParagraph ">In 1900, Swiss glaciers were almost 18 km long on average.
+            <p class="cc-textParagraph" id="cc-glacierText">In 1900, Swiss glaciers were almost 18 km long on average.
                 As temperatures rose, the length of the glaciers steadily decreased. By 1930, Swiss glaciers had lost an average of 292 metres in length.</p>
             
             <div class="cc-storyBtn Glacier">
@@ -103,14 +102,28 @@
                 <h2>Rainfall</h2>
             </div>
 
-            <img class="cc-rainCalendar" src="/images/cc-calendar.webp" alt="Rainfall Calendar">
-            <h2 class="cc-rainYear" style="z-index: 1000;">1960</h2>
+            <div class="cc-rainGrid">
+                <div class="cc-rainGridItem">
+                    <h1 class="cc-rainYear" style="z-index: 1000;">1960</h1>
+                    <h2 class="cc-rainTitle">Precipitation days</h2>
+                    <p class="cc-rainDays">136</p>
+                </div>
+                <div class="cc-rainGridItem">
+                    <h1 class="cc-rainYear" style="z-index: 1000;">1990</h1>
+                    <h2 class="cc-rainTitle">Precipitation days</h2>
+                    <p class="cc-rainDays">119</p>
+                </div>
+                <div class="cc-rainGridItem">
+                    <h1 class="cc-rainYear" style="z-index: 1000;">2020</h1>
+                    <h2 class="cc-rainTitle">Precipitation days</h2>
+                    <p class="cc-rainDays">108</p>
+                </div>
+            </div>
 
-            <h2 class="cc-rainTitle">Precipitation days</h2>
-            <p class="cc-rainDays">136</p>
+            
 
             <div class="cc-storyBtn Rainfall">
-                <a id="cc-rainContinue" onclick="nextRain(1)">Continue</a>
+                <a id="cc-rainContinue" onclick="revealEnergy()">Next Chapter</a>
             </div>
         </div>
     </section>
@@ -124,7 +137,7 @@
             </div>
 
             <h1 class="cc-energyYearTitle">1910 - 1940</h1>
-            <p class="cc-energyDesc">Total energy produced, sorted by energy source.</p>
+            <p class="cc-energyDesc">Total energy produced Switzerland, sorted by energy source.</p>
 
             <div class="cc-energyGrid">
                 <div class="cc-energyGridItem">
@@ -224,7 +237,7 @@
 <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
 <script src="/js/main.js"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 
 <!-- Initialize AOS.js -->
 <script>

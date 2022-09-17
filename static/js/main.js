@@ -25,24 +25,23 @@ async function burgerMenu(check) {
         
         burgerBtn.setAttribute( "onClick", "burgerMenu("+2+")" );
 
-        for (i = 0; burgerLinks.length > i; i++) {
+        for (var i = 0; burgerLinks.length > i; i++) {
             burgerLinks[i].style.display = "block";
         }
         await sleep(200);
-        for (i = 0; burgerLinks.length > i; i++) {
+        for (var i = 0; burgerLinks.length > i; i++) {
             burgerLinks[i].style.opacity = "1";
         }
     }
     else if (check == 2) {
-        for (i = 0; burgerLinks.length > i; i++) {
+        for (var i = 0; burgerLinks.length > i; i++) {
             burgerLinks[i].style.opacity = "0";
         }
         await sleep(200);
-        for (i = 0; burgerLinks.length > i; i++) {
+        for (var i = 0; burgerLinks.length > i; i++) {
             burgerLinks[i].style.display = "none";
         }
 
-        
         burgerInner.style.width = "0%";
         burgerBtn.style.opacity = "0";
         await sleep(100);
@@ -54,7 +53,6 @@ async function burgerMenu(check) {
         burgerContainer.style.display = "none";
 
         burgerBtn.setAttribute( "onClick", "burgerMenu("+1+")" );
-
     }
 }
 async function burgerStatus(check) {
@@ -82,7 +80,6 @@ async function revealGlacier(check) {
     burgerMenu(2);
     startSVG();
 
-
     // Reset Values
     var glacierLength = document.querySelector('.cc-glacierLength');
     var glacierDecrease = document.querySelector('.cc-glacierDecrease');
@@ -109,6 +106,7 @@ async function nextYear(year) {
     var glacierLength = document.querySelector('.cc-glacierLength');
     var glacierDecrease = document.querySelector('.cc-glacierDecrease');
     var yearTitle = document.querySelector('.cc-data1Title');
+    var glacierText = document.getElementById('cc-glacierText');
     
     var currentYear = year;
 
@@ -118,14 +116,17 @@ async function nextYear(year) {
 
         glacierLength.style.opacity = "0";        
         glacierDecrease.style.opacity = "0";
+        glacierText.style.opacity = "0";
         yearTitle.style.opacity = "0";
         await sleep(200);
+        glacierText.innerHTML = "From 1930 to 1960, the glaciers lost an average of 523 metres in length. Compared to 1900, they even lost 810 metres.";
         glacierLength.innerHTML = "17'683m";
         glacierDecrease.innerHTML = "- 523m";
         yearTitle.innerHTML = newTitle;
         await sleep(200);
         glacierLength.style.opacity = "1";        
         glacierDecrease.style.opacity = "1";
+        glacierText.style.opacity = "1";
         yearTitle.style.opacity = "1";
 
         
@@ -138,19 +139,22 @@ async function nextYear(year) {
 
     }
     else if (currentYear == 1931) {
-        var newTitle = "1961 - 1990";
+        newTitle = "1961 - 1990";
         actualYear = "1961";
 
         glacierLength.style.opacity = "0";        
         glacierDecrease.style.opacity = "0";
+        glacierText.style.opacity = "0";
         yearTitle.style.opacity = "0";
         await sleep(200);
+        glacierText.innerHTML = "By 1990, the glaciers had lost a further 625 metres in length. Compared to 1900, this is already more than 1.5 kilometres.";
         glacierLength.innerHTML = "17'160m";
         glacierDecrease.innerHTML = "- 625m";
         yearTitle.innerHTML = newTitle;
         await sleep(200);
         glacierLength.style.opacity = "1";        
         glacierDecrease.style.opacity = "1";
+        glacierText.style.opacity = "1";
         yearTitle.style.opacity = "1";
 
         svg.svgatorPlayer.ready(async function(player) {
@@ -160,19 +164,22 @@ async function nextYear(year) {
         });
     }
     else if (currentYear == 1961) {
-        var newTitle = "1991 - 2020";
+        newTitle = "1991 - 2020";
         actualYear = "1991";
 
         glacierLength.style.opacity = "0";        
         glacierDecrease.style.opacity = "0";
+        glacierText.style.opacity = "0";
         yearTitle.style.opacity = "0";
         await sleep(200);
+        glacierText.innerHTML = "In the last 30 years, the glaciers have lost another 1000 metres in length. This means that since 1900, Swiss glaciers have lost an average of 2.5 kilometres in length.";
         glacierLength.innerHTML = "16'535m";
         glacierDecrease.innerHTML = "- 1000m";
         yearTitle.innerHTML = newTitle;
         await sleep(200);
         glacierLength.style.opacity = "1";        
         glacierDecrease.style.opacity = "1";
+        glacierText.style.opacity = "1";
         yearTitle.style.opacity = "1";
 
         svg.svgatorPlayer.ready(async function(player) {
@@ -342,33 +349,7 @@ async function revealRainfall(check) {
     revealTemperature("finish");
 }
 
-// Next Rainfall
-async function nextRain(check) {
-    var rainContinue = document.getElementById('cc-rainContinue');
-
-    if (check == 1) {
-        var next = 2;
-    }
-    else if (check == 2) {
-        var next = 3;
-    }
-    else if (check == 3) {
-        var next = 4;
-    }
-
-    rainContinue.setAttribute( "onClick", "nextRain("+next+")" );
-
-    if (check == 4) {
-        rainContinue.setAttribute( "onClick", "revealEnergy()" );
-        await sleep(200);
-        rainContinue.style.opacity = "0";
-        await sleep(200);
-        rainContinue.innerHTML = "Next Chapter";
-        await sleep(200);
-        rainContinue.style.opacity = "1";
-    }
-}
-
+// Reveal Energy Page
 async function revealEnergy(check) {
     var energySec = document.querySelector('.cc-energySec');
 
@@ -410,7 +391,7 @@ async function nextEnergy(check) {
         var yearTitle = "2000 - 2021";
     }
 
-    for (i = 0; energyValues.length > i; i++) {
+    for (var i = 0; energyValues.length > i; i++) {
         energyValues[i].innerHTML = array[i];
     }
 
@@ -454,16 +435,3 @@ async function revealPopulation(check) {
     await sleep(300);
     revealEnergy("finish");
 }
-
-// Next Population
-// async function nextPop(check) {
-//     var popContinue = document.getElementById('cc-popContinue');
-
-//     await sleep(200);
-//     popContinue.style.opacity = "0";
-//     await sleep(200);
-//     popContinue.innerHTML = "End Journey";
-//     popContinue.href = "/imp";
-//     await sleep(200);
-//     popContinue.style.opacity = "1";
-// }

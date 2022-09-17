@@ -26,7 +26,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + "/static"));
 
 // - DB Connection
-var connection = require('./db.js');
+// var connection = require('./db.js');
 
 app.get('/', function (req, res) {
 	res.render('pages/index');	

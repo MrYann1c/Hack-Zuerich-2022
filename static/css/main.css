@@ -212,6 +212,10 @@ body, html {
   font-weight: 900;
 }
 
+#cc-glacierText {
+  transition: all 200ms;
+}
+
 .cc-textParagraph {
   width: 50%;
   color: darkslategray;
@@ -336,9 +340,10 @@ body, html {
 }
 
 .cc-tempScala {
-  height: 55px;
+  height: 65px;
   transform: rotate(-90deg);
   margin-right: 15px;
+  transition: all 200ms;
 }
 
 .cc-tempSwiss {
@@ -380,34 +385,42 @@ body, html {
   color: silver;
 }
 
-.cc-rainCalendar {
-  position: absolute;
-  width: 400px;
-  z-index: 10;
+.cc-rainGrid {
+  display: grid;
+  grid-template-columns: 400px 400px 400px;
+  padding: 5px;
+}
+
+.cc-rainGridItem {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.35);
+  border: 1px solid silver;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .cc-rainYear {
-  position: absolute;
-  margin-bottom: 172px;
   font-size: 29px;
-  color: white;
+  color: silver;
+  z-index: 100;
+  margin: 10px 0 0 0;
 }
 
 .cc-rainTitle {
   z-index: 100;
-  color: darkslategray;
+  color: silver;
   font-size: 23px;
   text-transform: uppercase;
   font-weight: 500;
-  margin: 70px 0 0 0;
+  margin: 15px 0 0 0;
 }
 
 .cc-rainDays {
-  color: blue;
+  color: lightblue;
   font-size: 25px;
   font-weight: 900;
   z-index: 100;
-  margin: 15px 0 0 0;
+  margin: 5px 0 10px 0;
 }
 
 .cc-energySec {
@@ -579,12 +592,20 @@ body, html {
   width: 100%;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-image: url("/images/cc-polyImgBackground.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.cc-impTitle {
+  color: silver;
+  margin: 0 0 50px 0;
+  font-size: 50px;
+  text-transform: uppercase;
 }
 
 .cc-impGrid {
